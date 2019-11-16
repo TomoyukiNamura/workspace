@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: tmp
+      MYSQL_ROOT_PASSWORD: mypasswd
+
+  mongodb:
+    image: mongo:4.2
+    restart: always
+    ports:
+      - 27017:27017
+
