@@ -12,6 +12,8 @@ db.test2.find()
 db.aaa.find()
 
 // データベースs1使用 
+
+
 use test;
 
 show collections;
