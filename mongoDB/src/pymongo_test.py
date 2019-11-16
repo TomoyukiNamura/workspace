@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import json
 from pymongo import MongoClient
-from datetime import datetime
+
 
 HOST       = '192.168.0.7'
 PORT       = 27017
@@ -32,10 +33,11 @@ def main():
     # 指定のコレクションを削除
     obj.drop_collection(COLLECTION)
     
+    # jsonデータインポート
+    with open('./data/features.json', 'r') as f:
+        data = [json.loads(line) for line in f]
+        
     # 指定のコレクションにデータをインサート
-    data = [{'_id':1, 'title': 'ハリネズミ1','content': 'ハリネズミ可愛い~','created_at': datetime.now()},
-            {'_id':2, 'title': 'ハリネズミ2','content': 'ハリネズミ可愛い~かな?','created_at': datetime.now()},
-            {'_id':3, 'title': 'ハリネズミ3','content': 'ハリネズミ可愛いくない!','created_at': datetime.now()}]
     obj.insert(COLLECTION, data)
     
 
