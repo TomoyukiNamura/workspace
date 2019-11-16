@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  uwsgi:
+    container_name: app
+    build: ./app
+    command: uwsgi --ini uwsgi.ini
+
+  nginx:
+    container_name: web
+    build: ./web
+    links:
+      - uwsgi
+    volumes_from:
+      - uwsgi
+    ports:
+      - "127.0.0.1:8080:80"
+
