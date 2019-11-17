@@ -84,11 +84,6 @@ db.test_json.find({})
 db.test_json.find({}).count()
 
 
-db.test_json.find({
-    $and:[
-        {'properties.BLOCK_NUM':{$ne:'0026T'}}, 
-        {'properties.BLOCK_NUM':{$ne:'0027'}}, 
-    ]
-}).count()
+
 
 
