@@ -85,3 +85,33 @@ array.forEach(currentValue => {
     print(currentValue);
 });
 
+// 配列
+//// 初期化
+let array = [];
+
+//// 追加
+array.push("D"); // "D"を末尾に追加
+print(array);
+
+//// 削除
+poppedItem = array.pop(); // 最末尾の要素を削除し、その要素を返す 
+print(poppedItem);
+print(array);
+
+//// 配列同士を結合
+array = ["A", "B", "C"];
+array = array.concat(["D", "E"]);
+array = array.concat("新しい要素");
+
+
+
+// 文字列
+//// 連結
+x = "123"
+y = "45"
+x + y
+
+//// 一部を取得
+x = "12345";
+x.slice(2);    // 先頭2要素を削除 
+x.slice(1, 3); // 1~(3-1)要素を取得
