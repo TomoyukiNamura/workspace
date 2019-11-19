@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   mongodb:
-    image: mongo:4.2
+    build: ./container
     restart: always
     ports:
       - 27018:27017

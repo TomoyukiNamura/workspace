@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Variable Name Convertor</title>
+</head>
+<body>
+<div id="search_criteria" data-json={{input_data}}>
+</div>
+<h1>Variable Name Convertor</h1>
+<div>
+  <form action="/convert" method="POST">
+    <input type="text" name="sentence" value="{{sentence}}" style="width:330px;height:60px;font-size:40px;">
+    <p style="display: inline;">
+      <b style="font-size:40px;">　＞＞＞　</b>
+    </p>
+    <input type="text" name="result" value="{{result}}" style="width:330px;height:60px;font-size:40px;">
+    <br />
+    <br />
+    <p style="display:inline;font-size:20px;">　表記:</p>
+    <select name="case" style="height: 2em;">
+        {% for case in select["case"] %}
+        <option value="{{case[1]}}">{{case[0]}}</option>
+        {% endfor %}
+    </select>
+    <p style="display:inline;font-size:20px;">　言語:</p>
+    <select name="language" style="height: 2em;">
+        {% for language in select["language"] %}
+        <option value="{{language[1]}}">{{language[0]}}</option>
+        {% endfor %}
+    </select>
+
+    <p style="display:inline;font-size:20px;">　種類:</p>
+    <select name="type" style="height: 2em;">
+        {% for type in name_type["python"] %}
+        <option value="{{type[1]}}">{{type[0]}}</option>
+        {% endfor %}
+    </select>
+
+    <p style="display:inline;font-size:20px;">　略語の使用:</p>
+    <select name="acronym" style="height: 2em;">
+        {% for acronym in select["acronym"] %}
+        <option value="{{acronym[1]}}">{{acronym[0]}}</option>
+        {% endfor %}
+    </select>
+    <p style="display:inline;font-size:20px;">　自動変換:</p>
+    <input type="checkbox" name="auto" value="true">
+    <input type="submit" value="変換">
+
+    {% if candidate_list %}
+        <br />
+        <br />
+        <p style="display:inline;font-size:20px;">　変換結果一覧:</p>
+        <br />
+        {% for candidate in candidate_list %}
+            <p style="display:inline;font-size:18px;">　　{{candidate}}</p>
+            <br />
+        {% endfor %}
+    {% endif %}

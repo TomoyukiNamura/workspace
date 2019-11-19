@@ -19,7 +19,7 @@ RUN mkdir /var/www
 WORKDIR /var/www
 
 # 依存Pythonライブラリインストール
-RUN pip install Flask
+RUN pip install bottle
 RUN pip install uwsgi
 
 
