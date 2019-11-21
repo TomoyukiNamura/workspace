@@ -49,7 +49,7 @@ class ProbGraph(BaseGraph):
             condprob_distid = np.dot(parent_values, 2 ** np.arange(parent_values.shape[0]))
             
             # 条件付き確率取得
-            condprob = self.conditional_prob[node_id][condprob_distid, 0]
+            condprob = self.conditional_prob[node_id][condprob_distid, 1]
             
             # サンプル発生
             sample[node_id] = binomial(n=1, p=condprob)
