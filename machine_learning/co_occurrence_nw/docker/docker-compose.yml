@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+
+  hopfieldnw:
+    build: .
+    volumes:
+      - ../:/home
+    environment:
+      TZ: "Asia/Tokyo"
+    tty: true
