@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  cassandra:
+    container_name: cassandra
+    build: .
+    restart: always
+    ports:
+      - 9042:9042
+    environment:
+      - CASSANDRA_USER=root
+      - CASSANDRA_PASSWORD=passwd
+      - MAX_HEAP_SIZE=256M
+      - HEAP_NEWSIZE=128M
+    volumes:
+      - ./data:/var/lib/cassandra
+

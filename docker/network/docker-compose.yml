@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+
+  server_100_1:
+    build: .
+    tty: true
+    privileged: true
+    networks:
+      - net_1
+
+  server_100_2:
+    build: .
+    tty: true
+    privileged: true
+    networks:
+      - net_1
+
+  server_101_1:
+    build: .
+    tty: true
+    privileged: true
+    networks:
+      - net_2
+
+  server_101_2:
+    build: .
+    tty: true
+    privileged: true
+    networks:
+      - net_2
+
+
+
+#  server_100_1:
+#    build: .
+#    tty: true
+#    networks:
+#      app_net:
+#        ipv4_address: 10.5.0.2
+
+networks:
+  net_1:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 10.254.100.0/24
+#       - ip-range: 10.254.100.48/28
+#         gateway: 192.168.100.254
+  net_2:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 10.254.101.0/24
+#       - ip-range: 10.254.101.48/28
+#         gateway: 192.168.101.254
