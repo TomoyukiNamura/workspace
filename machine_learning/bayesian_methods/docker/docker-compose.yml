@@ -3,6 +3,7 @@ version: '3.1'
 services:
 
   bayesian:
+    container_name: bayesian
     build: .
     volumes:
       - ../:/home

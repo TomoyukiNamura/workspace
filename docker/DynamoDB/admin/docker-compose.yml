@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  admin:
+    container_name: paper_bot_admin_test
+    build: .
+    volumes:
+      - ..:/home
+    ports:
+      - 8001:8001
+    environment:
+      TZ: "Asia/Tokyo"
+    networks:
+      test_dynamo:
+        paper_bot_net: 192.168.253.4
+    tty: true

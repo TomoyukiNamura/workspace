@@ -1,0 +1,43 @@
+version: '3.1'
+
+services:
+  admin:
+    container_name: dynamodb_admin
+    build: ./admin
+    volumes:
+      - ..:/home
+    ports:
+      - 8001:8001
+    environment:
+      TZ: "Asia/Tokyo"
+    networks:
+      test_dynamo:
+        ipv4_address: 10.0.0.2
+    tty: true
+
+  db:
+    container_name: dynamodb
+    build: ./db
+    restart: always
+    volumes:
+#      - dynamodb_data:/home/dynamodblocal/data
+      - ./db/data:/data/db
+    ports:
+      - 8000:8000
+    command: -jar DynamoDBLocal.jar -dbPath ./data
+    environment:
+      TZ: "Asia/Tokyo"
+      AWS_REGION: eu-west-1
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
+    networks:
+      test_dynamo:
+        ipv4_address: 10.0.0.3
+
+networks:
+  test_dynamo:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 10.0.0.0/24
