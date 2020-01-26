@@ -31,6 +31,11 @@ Plugin 'prabirshrestha/vim-lsp'
 "Plugin 'hrsh7th/vim-vsnip'
 "Plugin 'hrsh7th/vim-vsnip-integ'
 
+" Vueハイライト
+" autocmd FileType vue syntax sync fromstart
+autocmd BufNewFile,BufRead *.{html,htm,vue*} set filetype=html
+
+
 " デバッグ用設定
 let g:lsp_log_verbose = 1  " デバッグ用ログを出力
 let g:lsp_log_file = expand('~/.cache/tmp/vim-lsp.log')  " ログ出力のPATHを設定
@@ -85,3 +90,4 @@ let g:lsp_text_edit_enabled = 1
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
