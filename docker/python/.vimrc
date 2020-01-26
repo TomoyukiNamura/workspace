@@ -25,11 +25,11 @@ Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'prabirshrestha/vim-lsp'
 
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'mattn/vim-lsp-icons'
-
-Plugin 'hrsh7th/vim-vsnip'
-Plugin 'hrsh7th/vim-vsnip-integ'
+"Plugin 'mattn/vim-lsp-settings'
+"Plugin 'mattn/vim-lsp-icons'
+"
+"Plugin 'hrsh7th/vim-vsnip'
+"Plugin 'hrsh7th/vim-vsnip-integ'
 
 " デバッグ用設定
 let g:lsp_log_verbose = 1  " デバッグ用ログを出力
