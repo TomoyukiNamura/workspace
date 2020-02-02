@@ -9,5 +9,5 @@ https://arxiv.org/pdf/1603.02754.pdf
 ## LightGBM元論文URL
 https://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree.pdf
 
-## CatBoost
+## CatBoost元論文URL
 http://papers.nips.cc/paper/7898-catboost-unbiased-boosting-with-categorical-features.pdf
